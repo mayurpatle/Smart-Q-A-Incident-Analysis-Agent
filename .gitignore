@@ -1,0 +1,116 @@
+# ============================================================
+# Incident Intelligence Agent — .GITIGNORE
+# ============================================================
+
+# ---- Secrets & local config ----
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ---- Virtual environments ----
+# Never commit venvs — they contain absolute paths and OS-specific binaries
+.venv/
+venv/
+env/
+ENV/
+.virtualenv/
+
+# ---- Persistent data (machine-local, regenerable) ----
+# Contains absolute paths in ChromaDB's SQLite — never portable
+data/
+!data/.gitkeep
+
+# Specific persistence stores (in case data/ is moved)
+chroma_db/
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Uploaded knowledge files (user-specific)
+uploads/
+
+# ---- Python build artifacts ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ---- Testing & coverage ----
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# ---- Type checkers / linters ----
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pyre/
+.pytype/
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
+
+# ---- OS metadata ----
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ---- Streamlit ----
+.streamlit/secrets.toml
+
+# ---- HuggingFace cache (large model files) ----
+# These are downloaded automatically; no need to commit
+.cache/
+huggingface/
+models/
+
+# ---- LangChain / LangGraph runtime ----
+.langchain.db
+.langgraph_api/
+
+# ---- Logs ----
+*.log
+logs/
+
+# ---- Temporary files ----
+tmp/
+temp/
+*.tmp
+*.bak
+*.old
