@@ -49,6 +49,9 @@ def _load_file(file_path: Path) -> List[Document]:
         except Exception:
             # Fallback: load as plain text if unstructured deps are missing
             return TextLoader(str(file_path), encoding="utf-8").load()
+    if suffix == ".docx":
+        from langchain_community.document_loaders import Docx2txtLoader
+        return Docx2txtLoader(str(file_path)).load()
     if suffix in {".txt"}:
         return TextLoader(str(file_path), encoding="utf-8").load()
     raise ValueError(f"Unsupported file type: {suffix}")

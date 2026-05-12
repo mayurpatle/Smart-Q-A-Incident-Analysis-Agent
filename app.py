@@ -182,7 +182,7 @@ with tab_upload:
 
     uploaded_files = st.file_uploader(
         "Choose files",
-        type=["pdf", "md", "markdown", "txt"],
+        type=["pdf", "docs" , "md", "markdown", "txt"],
         accept_multiple_files=True,
     )
 
